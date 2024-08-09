@@ -52,13 +52,18 @@ for (let i = 1; i <= numCircles; i++) {
   circle.style.backgroundColor =  '#151f2b55';
   circle.style.boxShadow= 'inset 0 0 100px 1px #000';
   circle.style.transform = `translate(-${size / 2}px, -${size / 2}px)`;
+  circle.style.webkitTransform = `translate(-${size / 2}px, -${size / 2}px)`;  
+  circle.style.mozTransform = `translate(-${size / 2}px, -${size / 2}px)`;     
   circle.style.borderRadius = ' 0 100% 100% 0';
+  circle.style.webkitBorderRadius = '0 100% 100% 0';  
+  circle.style.mozBorderRadius = '0 100% 100% 0';     
   circle.style.zIndex = `-${i}`;
   circle.style.animation = 'pulse 5s  ease-in-out infinite';
+  circle.style.webkitAnimation = 'pulse 5s ease-in-out infinite';  
+  circle.style.mozAnimation = 'pulse 5s ease-in-out infinite';     
   circle.style.animationDelay = `${i * 0.1}s`;
-  // circle.style.boxShadow = `5px 10px #888888;`;
-
-  // Append the circle to the container
+  circle.style.webkitAnimationDelay = `${i * 0.1}s`;  
+  circle.style.mozAnimationDelay = `${i * 0.1}s`;     
   container.appendChild(circle);
 }
 

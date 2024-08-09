@@ -503,6 +503,30 @@ section,
   z-index:0;
 
 }
+@-webkit-keyframes pulse {
+  0% {
+    -webkit-transform: translate(-50%, -50%) scale(1);
+  }
+  50% {
+    -webkit-transform: translate(-50%, -50%) scale(1.1);
+  }
+  100% {
+    -webkit-transform: translate(-50%, -50%) scale(1);
+  }
+}
+
+@-moz-keyframes pulse {
+  0% {
+    -moz-transform: translate(-50%, -50%) scale(1);
+  }
+  50% {
+    -moz-transform: translate(-50%, -50%) scale(1.1);
+  }
+  100% {
+    -moz-transform: translate(-50%, -50%) scale(1);
+  }
+}
+
 @keyframes pulse {
   0% {
     transform: translate(-50%, -50%) scale(1);
