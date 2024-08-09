@@ -36,14 +36,15 @@
 // CUSTOM CSS LOOPING HYPNO SHIT
 const container = document.querySelector('.circle-container');
 const isMobile = window.innerWidth <= 768; 
-const numCircles = isMobile ? 25 : 40;
+const numCircles = isMobile ? 20 : 40;
+const radiusInit = isMobile ? 80 : 50;
 var mult  = 1;
 for (let i = 1; i <= numCircles; i++) {
   const circle = document.createElement('div');
   
   circle.classList.add(`circle${i}`);
 
-  const size = 50 * i * mult;
+  const size = radiusInit * i * mult;
   mult *= 1.02;
   circle.style.width = `${size}px`;
   circle.style.height = `${size}px`;
