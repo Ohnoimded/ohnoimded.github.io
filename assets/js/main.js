@@ -35,7 +35,8 @@
 
 // CUSTOM CSS LOOPING HYPNO SHIT
 const container = document.querySelector('.circle-container');
-const numCircles =40;
+const isMobile = window.innerWidth <= 768; 
+const numCircles = isMobile ? 25 : 40;
 var mult  = 1;
 for (let i = 1; i <= numCircles; i++) {
   const circle = document.createElement('div');
