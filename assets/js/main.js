@@ -34,43 +34,52 @@
   });
 
 // CUSTOM CSS LOOPING HYPNO SHIT
-const container = document.querySelector('.circle-container');
-const isMobile = window.innerWidth <= 920; 
-const numCircles = isMobile ? 20 : 40;
-const radiusInit = isMobile ? 80 : 50;
-var mult  = 1;
-for (let i = 1; i <= numCircles; i++) {
-  const circle = document.createElement('div');
+let isMobile = window.innerWidth <= 1000;
+
+const createCircles = () => {
+  const container = document.querySelector('.circle-container');
   
-  circle.classList.add(`circle${i}`);
+  // Clear existing circles
+  container.innerHTML = '';
+  
+  const numCircles = isMobile ? 22 : 40;
+  const radiusInit = isMobile ? 80 : 50;
+  let mult = 1;
+  
+  for (let i = 1; i <= numCircles; i++) {
+    const circle = document.createElement('div');
+    circle.classList.add(`circle${i}`);
 
-  const size = radiusInit * i * mult;
-  mult *= 1.02;
-  circle.style.width = `${size}px`;
-  circle.style.height = `${size}px`;
-  circle.style.position = 'absolute';
-  circle.style.top = '0';
-  circle.style.left = '0';
-  circle.style.backgroundColor =  '#151f2b55';
-  circle.style.boxShadow= 'inset 0 0 100px 1px #000';
-  circle.style.transform = `translate(-${size / 2}px, -${size / 2}px)`;
-  circle.style.webkitTransform = `translate(-${size / 2}px, -${size / 2}px)`;  
-  circle.style.mozTransform = `translate(-${size / 2}px, -${size / 2}px)`;     
-  circle.style.borderRadius = ' 0 100% 100% 0';
-  circle.style.webkitBorderRadius = '0 100% 100% 0';  
-  circle.style.mozBorderRadius = '0 100% 100% 0';     
-  circle.style.zIndex = `-${i}`;
-  circle.style.animation = 'pulse 5s  ease-in-out infinite';
-  circle.style.webkitAnimation = 'pulse 5s ease-in-out infinite';  
-  circle.style.mozAnimation = 'pulse 5s ease-in-out infinite';     
-  circle.style.animationDelay = `${i * 0.1}s`;
-  circle.style.webkitAnimationDelay = `${i * 0.1}s`;  
-  circle.style.mozAnimationDelay = `${i * 0.1}s`;     
-  container.appendChild(circle);
-}
+    const size = radiusInit * i * mult;
+    mult *= 1.02;
+    circle.style.width = `${size}px`;
+    circle.style.height = `${size}px`;
+    circle.style.position = 'absolute';
+    circle.style.top = '0';
+    circle.style.left = '0';
+    circle.style.backgroundColor =  '#151f2b55';
+    circle.style.boxShadow = 'inset 0 0 100px 1px #000';
+    circle.style.transform = `translate(-${size / 2}px, -${size / 2}px)`;
+    circle.style.borderRadius = '0 100% 100% 0';
+    circle.style.zIndex = `-${i}`;
+    circle.style.animation = 'pulse 5s ease-in-out infinite';
+    circle.style.animationDelay = `${i * 0.1}s`;
+    
+    container.appendChild(circle);
+  }
+};
 
+// Initial circle creation
+createCircles();
 
-
+// Update circles on window resize
+window.addEventListener("resize", () => {
+  let p = isMobile;
+  isMobile = window.innerWidth <= 1000;
+  if (p != isMobile){
+    createCircles()
+  }
+});
 
 
   /**
